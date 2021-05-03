@@ -1,0 +1,16 @@
+<h1>{{image.title}}</h1>
+{% if image.wcImage %}
+    <img src="{{ image.wcImage.url }}"/>
+{% endif %}
+{{image.source | linebreaks}}
+<h3>Comments</h3>
+<a href="{% url 'comment_new' pk=image.pk %}">Comment</a>
+<ul>
+    {% for comment in image.comment_set.all %}
+        <li>
+            {{ comment.message }}
+            <small>by {{ comment.author }}}, {{ comment.createDate }}</small>
+            <a href="{% url 'comment_edit' post_pk=image.pk pk=comment.pk %}">Edit</a>
+        </li>
+    {% endfor %}
+</ul>

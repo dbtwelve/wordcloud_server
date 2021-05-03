@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+</head>
+<body>
+    <h1>test page</h1>
+    {% for image in image_list %}
+    <tr>
+        <td>{{image.id}}</td>
+    </tr>
+    <tr>
+        <td>{{image.title}}</td>
+    </tr>
+    <tr>
+        <td>{{image.createDate}}</td>
+    </tr>
+    {% endfor %}
+</body>
+</html>
